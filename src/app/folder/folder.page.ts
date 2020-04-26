@@ -17,12 +17,14 @@ export class FolderPage implements OnInit {
   rangeDeaths: number = 0;
   rangeRecovered: number = 0;
   rangeConfirmed: number = 0;
+
   constructor(private activatedRoute: ActivatedRoute, private covid: Covid19Service) { }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.folder == "spain" ? this.title = "Datos de España" : this.title = "Datos globales";
     this.getCountryData("spain");
+    this.getWorldData();
   }
 
   getWorldData() {

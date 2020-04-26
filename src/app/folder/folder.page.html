@@ -62,5 +62,19 @@
       >
       </p>
     </div>
+    <div *ngIf="folder === 'world' && worldData !== null">
+      <img id="spain" src="../../assets/flags/world.png" alt="spain" />
+      <br />
+      <strong class="capitalize">Datos Mundiales actualizados</strong>
+      <p id="confirmed">
+        Confirmados: {{worldData.TotalConfirmed}}
+      </p>
+      <p id="deaths">
+        Fallecidos: {{worldData.TotalDeaths}}
+      </p>
+      <p id="recovered">
+        Recuperados: {{worldData.TotalRecovered}}
+      </p>
+    </div>
   </div>
 </ion-content>
