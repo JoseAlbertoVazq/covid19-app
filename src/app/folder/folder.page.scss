@@ -7,7 +7,7 @@ ion-menu-button {
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
 }
 
@@ -19,10 +19,33 @@ ion-menu-button {
 #container p {
   font-size: 16px;
   line-height: 22px;
-  color: #8c8c8c;
   margin: 0;
+}
+#confirmed {
+  color: black;
+}
+#active {
+  color: darkgoldenrod;
+}
+#recovered {
+  color: green;
+}
+#deaths {
+  color: red;
 }
 
 #container a {
   text-decoration: none;
+}
+
+#container #spain {
+  max-width: 45%;
+}
+
+.better {
+  color: darkgreen;
+}
+
+.worse {
+  color: darkred;
 }

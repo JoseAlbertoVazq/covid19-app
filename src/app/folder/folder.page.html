@@ -3,19 +3,64 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
+      <ion-title *ngIf="title !== null" size="large">{{ title }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div *ngIf="folder === 'spain' && countryData !== null">
+      <img id="spain" src="../../assets/flags/spain.png" alt="spain" />
+      <br />
+      <strong class="capitalize">Datos de España actualizados</strong>
+      <p id="confirmed">
+        Confirmados: {{countryData[this.countryData.length - 1].Confirmed}}
+        <span
+          ><small *ngIf="rangeConfirmed < 0" class="better"
+            >-{{rangeConfirmed}}</small
+          ><small *ngIf="rangeConfirmed > 0" class="worse"
+            >+{{rangeConfirmed}}</small
+          >
+          </span
+        >
+      </p>
+      <p id="active">
+        En activo: {{countryData[this.countryData.length - 1].Active}}
+        <span
+        ><small *ngIf="rangeActive < 0" class="better"
+          >-{{rangeActive}}</small
+        ><small *ngIf="rangeActive > 0" class="worse"
+          >+{{rangeActive}}</small
+        >
+        </span
+      >
+      </p>
+      <p id="deaths">
+        Fallecidos: {{countryData[this.countryData.length - 1].Deaths}}
+        <span
+        ><small *ngIf="rangeDeaths > 0" class="worse"
+          >+{{rangeDeaths}}</small
+        >
+        </span
+      >
+      </p>
+      <p id="recovered">
+        Recuperados: {{countryData[this.countryData.length - 1].Recovered}}
+        <span
+        ><small *ngIf="rangeRecovered > 0" class="better"
+          >+{{rangeRecovered}}</small
+        ><small *ngIf="rangeRecovered < 0" class="worse"
+          >-{{rangeRecovered}}</small
+        >
+        </span
+      >
+      </p>
+    </div>
   </div>
 </ion-content>
